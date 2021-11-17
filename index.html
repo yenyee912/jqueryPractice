@@ -1,56 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Invoice Total Calculator</title>
-    <link rel="stylesheet" href="invoice.css">
+	<title>Reservation request</title>
+	<link rel="stylesheet" href="reservation.css">
 </head>
-
-<body>
-    <main>
-		<h1>Invoice Total Calculator</h1>
-		<div>
-			<label for="type">Customer Type:</label>
-			<select id="type">
-				<option value="reg">Regular</option>
-				<option value="loyal">Loyalty Program</option>
-				<option value="honored">Honored Citizen</option>
-			</select>
-		</div>
-		<div>
-			<label for="subtotal">Invoice Subtotal:</label>
-			<input type="text" id="subtotal" placeholder="Number > 0" value=10>
-		</div>
-		<div>
-			<label for="invoice_date">Invoice Date:</label>
-			<input type="text" id="invoice_date" placeholder="MM/DD/YYYY">
-		</div>
-		<hr>
-		<div>
-			<label for="percent">Discount Percent:</label>
-			<input type="text" id="percent" disabled>%
-		</div>
-		<div>
-			<label for="discount">Discount Amount:</label>
-			<input type="text" id="discount" disabled>
-		</div>
-		<div>
-			<label for="total">Invoice Total:</label>
-			<input type="text" id="total" disabled><br>
-		</div>
-		<div>
-			<label for="due_date">Due Date:</label>
-			<input type="text" id="due_date" disabled>
-		</div>
-		<div>
-			<label>&nbsp;</label>
-			<input type="button" id="calculate" value="Calculate">
-			<input type="button" id="clear" value="Clear Entries">
-		</div>
-	</main>
 	
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="invoice.js"></script>
+<body>
+	<h1>Reservation Request</h1>
+	<form action="response.html" method="get" name="reservation_form" id="reservation_form">
+		<fieldset>
+        	<legend>General Information</legend>
+			<div>
+				<label for="arrival_date">Arrival date:</label>
+				<input type="text" name="arrival_date" id="arrival_date" autofocus>
+				<span id="msg_for_arrival_date">*</span>
+			</div>
+			<div>
+				<label for="nights">Nights:</label>
+				<input type="text" name="nights" id="nights">
+				<span id="msg_for_nights">*</span>
+			</div>
+			<div>
+				<label>Adults:</label>
+				<select name="adults" id="adults">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>        		        		        		
+				</select>
+			</div>
+			<div>
+				<label>Children:</label>
+				<select name="children" id="children">
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>        		        		        		
+				</select>
+			</div>        	
+		</fieldset>
+		<fieldset>
+        	<legend>Preferences</legend>
+			<div>
+				<label>Room type:</label>
+				<input type="radio" name="room" id="standard" class="left" checked>Standard	        	
+				<input type="radio" name="room" id="business" class="left">Business
+				<input type="radio" name="room" id="suite" class="left last">Suite
+			</div>
+			<div>
+				<label>Bed type:</label>
+				<input type="radio" name="bed" id="king" class="left" checked>King
+				<input type="radio" name="bed" id="double" class="left last">Double Double
+			</div>
+			<div>
+				<input type="checkbox" name="smoking" id="smoking">Smoking
+			</div>
+		</fieldset>		
+		<fieldset>
+    		<legend>Contact Information</legend>
+			<div>
+				<label for="name">Name:</label>
+				<input type="text" name="name" id="name">
+				<span id="msg_for_name">*</span>
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<input type="text" name="email" id="email">
+				<span id="msg_for_email">*</span>
+			</div>
+			<div>
+				<label for="phone">Phone:</label>
+				<input type="text" name="phone" id="phone" placeholder="999-999-9999">
+				<span id="msg_for_phone">*</span>
+			</div>
+		</fieldset>
+		<div>
+			<input type="submit" id="submit" value="Submit Request">
+		</div>
+	</form>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="reservation.js"></script>
 </body>
 </html>
